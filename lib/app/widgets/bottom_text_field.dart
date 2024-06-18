@@ -113,7 +113,6 @@ class _BottomTextFieldState extends State<BottomTextField> {
                               fontWeight: FontWeight.w400,
                             ),
                             decoration: const InputDecoration(
-                              // TODO:~翻译
                               hintText: 'Say hello...',
                               contentPadding: EdgeInsets.zero,
                               hintStyle: TextStyle(
@@ -135,32 +134,29 @@ class _BottomTextFieldState extends State<BottomTextField> {
                           onPressed: () {
                             // TODO: this
                           },
-                          style: IconButton.styleFrom(
-                            padding: const EdgeInsets.all(0),
-                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                          ),
+                          padding: const EdgeInsets.all(0),
+                          constraints: const BoxConstraints(),
                           color: Colors.black,
                           icon: const Icon(
                             Icons.emoji_emotions_outlined,
                             color: Colors.black,
-                            weight: 32,
                           )),
                     ),
                     const SizedBox(width: 12),
                     ElevatedButtonTheme(
                       data: ElevatedButtonThemeData(
                         style: ButtonStyle(
-                          foregroundColor: WidgetStateProperty.resolveWith(
-                            (states) => Colors.white,
+                          foregroundColor: MaterialStateProperty.resolveWith(
+                                (states) => Colors.white,
                           ),
-                          backgroundColor: WidgetStateProperty.resolveWith<Color>(
-                            (Set<WidgetState> states) {
-                              final disabled = states.contains(WidgetState.disabled);
+                          backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                                (Set<MaterialState> states) {
+                              final disabled = states.contains(MaterialState.disabled);
                               return const Color(0xff5B2DC1).withOpacity(disabled ? 0.4 : 1);
                             },
                           ),
-                          padding: WidgetStateProperty.resolveWith(
-                            (states) => const EdgeInsets.fromLTRB(12, 4, 12, 4),
+                          padding: MaterialStateProperty.resolveWith(
+                                (states) => const EdgeInsets.fromLTRB(12, 4, 12, 4),
                           ),
                         ),
                       ),
@@ -169,18 +165,17 @@ class _BottomTextFieldState extends State<BottomTextField> {
                         child: ElevatedButton(
                           onPressed: _sendButtonEnabled
                               ? () {
-                                  if (_textController.text.trim().isEmpty) {
-                                    // TODO: this
-                                    return;
-                                  }
+                            if (_textController.text.trim().isEmpty) {
+                              // TODO: this
+                              return;
+                            }
 
-                                  if (widget.onTapSend != null) {
-                                    widget.onTapSend!(_textController.text.trim());
-                                  }
-                                }
+                            if (widget.onTapSend != null) {
+                              widget.onTapSend!(_textController.text.trim());
+                            }
+                          }
                               : null,
                           child: const Text(
-                            // TODO:~翻
                             'Send',
                             style: TextStyle(
                               fontSize: 12,

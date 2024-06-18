@@ -94,5 +94,7 @@ coverage/
 # End of https://www.toptal.com/developers/gitignore/api/flutter,dart
 ios/Podfile.lock
 
-# FVM Version Cache
 # .fvm/
+
+# FVM Version Cache
+.fvm/

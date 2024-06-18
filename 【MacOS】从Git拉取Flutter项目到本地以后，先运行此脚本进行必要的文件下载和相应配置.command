@@ -56,13 +56,21 @@ else
 fi
 # 下载最新的fvm稳定版
 fvm install stable
-fvm install 3.7.12
-# 此项目里面用的flutter的SDK版本，固定死就是3.7.12
-fvm use 3.7.12
+fvm install 3.19.6
+# 此项目里面用的flutter的SDK版本，固定死就是3.19.6
+fvm use 3.19.6
 # 使用最新的fvm稳定版
 #fvm use stable
 
+# 环境自检
 flutter doctor -v
+# 列出可用版本
+fvm releases
+# 验证 Flutter 和 Dart 版本
 fvm flutter --version
+# 缓存清理
+fvm flutter clean
+# 更新依赖
 fvm flutter pub get
-flutter precache
+# 预下载必要的工具
+fvm flutter precache --all-platforms
